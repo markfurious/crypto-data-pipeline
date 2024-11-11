@@ -8,6 +8,7 @@ This project retrieves data for 10 cryptocurrencies daily using the CoinGecko AP
 - [Features](#features)
 - [Requirements](#requirements)
 - [Installation](#installation)
+- [Apache Airflow with Astro Setup](#apache-airflow-with-astro-setup)
 - [Usage](#usage)
 - [License](#license)
 
@@ -24,6 +25,7 @@ The pipeline retrieves data from CoinGecko, performs transformations on the data
 - Python 3.12 or higher
 - PostgreSQL database
 - Python packages listed in `requirements.txt`
+- Docker (for Airflow and Astro deployment)
 
 ## Installation
 
@@ -68,17 +70,61 @@ The pipeline retrieves data from CoinGecko, performs transformations on the data
     DB_PORT=5432
     ```
 
-6. **Run the Script**
+## Apache Airflow with Astro Setup
 
-    Run the script to start the data pipeline:
+1. **Install Docker**
+
+    Download and install Docker from [Docker's official website](https://www.docker.com/). Ensure Docker is running on your system.
+
+2. **Install Astro CLI**
+
+    - Go to the [Astronomer CLI installation page](https://docs.astronomer.io/astro/cli/install-cli) and follow the instructions for your operating system.
+
+    - After installation, verify by running:
+
+      ```bash
+      astro version
+      ```
+
+3. **Initialize Astro Project**
+
+    From your project directory, run:
 
     ```bash
-    python coingeckopipe.py
+    astro dev init
+    ```
+
+    This command creates the necessary files and folders to use Astro and Airflow in your project.
+
+4. **Start Astro and Airflow Locally**
+
+    Use the following command to start the Astro environment with Airflow:
+
+    ```bash
+    astro dev start
+    ```
+
+    This will create and start Docker containers for Airflow.
+
+5. **Access the Airflow Web Interface**
+
+    Once started, you can access the Airflow UI at `http://localhost:8080`. Use the default credentials provided in the Astro documentation or as configured.
+
+6. **Deploy Your DAGs**
+
+    Place your Airflow DAGs (pipeline files) in the `dags` folder created by Astro. Once placed, the DAGs will automatically load in the Airflow UI.
+
+7. **Stop Astro and Airflow**
+
+    To stop the local Airflow instance, use:
+
+    ```bash
+    astro dev stop
     ```
 
 ## Usage
 
-To automate the pipeline, you can use tools like **Apache Airflow** or **cron jobs** to run the script at desired intervals.
+To automate the pipeline, you can use the Airflow scheduler provided in the Astro environment to run the script at desired intervals.
 
 ## License
 
