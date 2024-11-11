@@ -5,7 +5,6 @@ This documentation provides an overview of the images that showcase various stag
 
 ## 1. Airflow Connections - `Connections.png`
 
-![Connections](Connections.png)
 
 This image shows the configuration of connections in Apache Airflow. Connections are set up to facilitate communication between Airflow and external services or databases:
 
@@ -16,7 +15,6 @@ This setup allows the ETL pipeline to extract data from CoinGecko and load it in
 
 ## 2. Airflow DAG Dashboard - `Dashboard DAGs.png`
 
-![Dashboard DAGs](Dashboard DAGs.png)
 
 This image displays the Airflow DAG (Directed Acyclic Graph) dashboard for the ETL pipeline (`coingecko_crypto_etl`). The DAG is scheduled to run daily, with tasks organized as follows:
 
@@ -30,7 +28,7 @@ Each task’s color (green for success, red for failure) provides a quick insigh
 
 ## 3. Docker Desktop Overview - `Docker Desktop.png`
 
-![Docker Desktop](Docker Desktop.png)
+
 
 This image shows the Docker Desktop interface with containers running for the ETL project:
 
@@ -42,7 +40,6 @@ The log output for each container displays status messages and any issues encoun
 
 ## 4. PostgreSQL Database - `Fetched Database.png`
 
-![Fetched Database](Fetched Database.png)
 
 This image displays the PostgreSQL database (`coingecko`) and the `crypto_data` table that stores the cryptocurrency data fetched from the API.
 
